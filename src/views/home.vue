@@ -1,8 +1,9 @@
 <template>
   <div class="flex flex-col h-screen">
     <div class="flex flex-nowrap fixed w-full items-baseline top-0 px-6 py-4 bg">
-      <div class="text-2xl font-bold">公益AI</div>
-      <div class="ml-4 text-sm text-gray-500">2023.11.21</div>
+      <div class="text-2xl font-bold">SparkModel</div>
+      <el-tag class="ylj" type="success" size="small">已连接</el-tag>
+      <div class="ml-4 text-sm text-gray-500">2023.11.26</div>
     </div>
 
     <!-- <div class="flex-1 mx-2 mt-20 mb-2" ref="chatListDom"> -->
@@ -145,7 +146,7 @@ const apiData = ref({
 const chatListDom = ref<HTMLDivElement>();
 const roleAlias = {
   user: "You",
-  assistant: "ChatAI",
+  assistant: "Spark",
   system: "System",
 };
 const messageList = ref<ChatMessage[]>([
@@ -156,7 +157,8 @@ const messageList = ref<ChatMessage[]>([
   },
   {
     role: "assistant",
-    content: `How can I help you today? / 我能为你做点什么？`,
+    content: `How can I help you today?\n\n`
+            +`我可以回答问题，高效便捷地帮助人们获取信息、知识和灵感。`,
   },
 ]);
 
@@ -316,7 +318,7 @@ const callSparkModel = async () => {
         chat: {
           domain: "generalv2",
           temperature: 0.5,
-          max_tokens: 2048,
+          max_tokens: 3072,
         },
       },
       payload: {
@@ -412,5 +414,9 @@ pre {
 
 .bg{
   backdrop-filter: blur(20px); /* 调整模糊程度，单位可以是像素(px)或其他合适的值 */
+}
+
+.ylj{
+  translate:  2px -10px;
 }
 </style>

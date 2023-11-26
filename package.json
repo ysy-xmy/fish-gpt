@@ -22,8 +22,11 @@
     "crypto-js": "^4.1.1",
     "element-plus": "^2.3.12",
     "highlight.js": "^11.7.0",
+    "katex": "^0.16.9",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
+    "markdown-it-katex": "^2.0.3",
+    "markdown-it-math": "^4.1.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
