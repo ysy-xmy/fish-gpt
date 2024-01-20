@@ -283,6 +283,7 @@ const callSparkModel = async () => {
     const res = await fetch(`https://www.oboard.eu.org/api/gpt?prompt=${messageContent.value}&userId=123`, {
         method: 'GET',
     });
+    console.log(res)
 
     if (!res.body) return;
   const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
@@ -300,83 +301,7 @@ const callSparkModel = async () => {
     // console.log("received data -", value)
     appendLastMessageContent(outvalue);
   }
- 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // socket.value.onopen = (e: any) => {
-  //   let params = {
-  //     header: {
-  //       app_id: apiData.value.APPID,
-  //       uid: "aef9f963-7",
-  //     },
-  //     parameter: {
-  //       // 1.5 参数
-  //       // chat: {
-  //       //   domain: "general",
-  //       //   temperature: 0.5,
-  //       //   max_tokens: 1024,
-  //       // },
-
-  //       // 2.0 参数
-  //       chat: {
-  //         domain: "generalv2",
-  //         temperature: 0.5,
-  //         max_tokens: 3072,
-  //       },
-  //     },
-  //     payload: {
-  //       message: {
-  //         text: [
-  //           {
-  //             role: "user",
-  //             content: messageContent.value,
-  //           },
-  //         ],
-  //       },
-  //     },
-  //   };
-
-  //   socket.value.send(JSON.stringify(params));
-  //   //清空输入框的内容
-  //   
-  // };
-
-  // socket.value.onmessage = (e: any) => {
-  //   let obj = JSON.parse(e.data);
-  //   console.log(obj)
-
-  //   let dataArray = obj.payload.choices.text;
-
-  //   for (let i = 0; i < dataArray.length; i++) {
-  //     appendLastMessageContent(dataArray[i].content);
-  //   }
-
-  //   let temp = JSON.parse(e.data);
-  //   if (temp.header.code !== 0) {
-  //     isTalking.value = false;
-  //     socket.value.close();
-  //   }
-  //   if (temp.header.code === 0) {
-  //     if (e.data && temp.header.status === 2) {
-    
-      
-  //   }
-  // };
-  // console.log(socket.value)
 };
 
 const appendLastMessageContent = (content: string) => {
