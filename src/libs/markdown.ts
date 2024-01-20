@@ -18,7 +18,7 @@ const mdOptions: Markdown.Options = {
         );
       } catch (__) {}
     }
-    return "";
+    return '';
   },
 };
 
