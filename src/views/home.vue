@@ -17,7 +17,7 @@
         <div class="flex flex-start items-center mb-2">
           <!-- AI头像 -->
           <div v-if="key % 2 !== 0" style="margin-right: 10px">
-              <img class="w-8 h-8" src="../../public/chatgpt.svg">
+              <img class="w-8 h-8" src="/chatgpt.svg">
             
           </div>
 
@@ -297,9 +297,10 @@ const callSparkModel = async () => {
         }, 1000);
       break;
     } 
-    value = value?.replace('undefined', '')
+ 
+    let outvalue:string = value?.replace('undefined', '') || '';
     // console.log("received data -", value)
-    appendLastMessageContent(value);
+    appendLastMessageContent(outvalue);
   }
  
 
