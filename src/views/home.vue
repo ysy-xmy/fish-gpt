@@ -280,10 +280,8 @@ const callSparkModel = async () => {
       "withoutContext": false,
       "stream": true
     }
-    const res = await fetch('https://api.binjie.fun/api/generateStream', {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(payload),
+    const res = await fetch(`https://www.oboard.eu.org/api/gpt?prompt=${messageContent.value}&userId=123`, {
+        method: 'GET',
     });
 
     if (!res.body) return;
@@ -383,8 +381,6 @@ const callSparkModel = async () => {
 
 const appendLastMessageContent = (content: string) => {
   // let outcontent=content.replace(/\n/g, '<br>')
-  console.log(content)
-
   messageList.value[messageList.value.length - 1].content += content;
 };
 
